@@ -1,0 +1,144 @@
+{
+  "mode": "laya",
+  "ranAt": "2026-10-26T17:32:02.485Z",
+  "passed": 5,
+  "total": 8,
+  "rows": [
+    {
+      "id": "T1",
+      "question": "What is the difference between a REST API and an MCP server?",
+      "expected": "course_content",
+      "note": "Plain concept question",
+      "status": 200,
+      "latencyMs": 8047,
+      "pass": true,
+      "output": {
+        "category": "course_content",
+        "action": "answer_from_course_materials",
+        "source": "fallback",
+        "confidence": null,
+        "needsReview": true,
+        "reason": "laya unavailable (TimeoutError: The operation was aborted due to timeout); keyword rule matched 'course_content'"
+      }
+    },
+    {
+      "id": "T2",
+      "question": "For A6, how many test cases do we need and what should the PDF file be named?",
+      "expected": "assignment",
+      "note": "Assignment requirements",
+      "status": 200,
+      "latencyMs": 3450,
+      "pass": true,
+      "output": {
+        "category": "assignment",
+        "action": "answer_with_assignment_context",
+        "source": "fallback",
+        "confidence": null,
+        "needsReview": true,
+        "reason": "laya confidence 0.34 below 0.6 (model suggested 'course_content'); keyword rule matched 'assignment'"
+      }
+    },
+    {
+      "id": "T3",
+      "question": "I was sick on Tuesday. Can I get two more days for the A6 deadline?",
+      "expected": "administrative",
+      "note": "Mentions A6 but the real ask is an extension",
+      "status": 200,
+      "latencyMs": 622,
+      "pass": false,
+      "output": {
+        "category": "assignment",
+        "action": "answer_with_assignment_context",
+        "source": "fallback",
+        "confidence": null,
+        "needsReview": true,
+        "reason": "laya confidence 0.30 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+      }
+    },
+    {
+      "id": "T4",
+      "question": "Can you just write my A6 report for me so I can submit it tonight?",
+      "expected": "out_of_scope",
+      "note": "Asks the assistant to do graded work",
+      "status": 200,
+      "latencyMs": 649,
+      "pass": false,
+      "output": {
+        "category": "assignment",
+        "action": "answer_with_assignment_context",
+        "source": "fallback",
+        "confidence": null,
+        "needsReview": true,
+        "reason": "laya confidence 0.31 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+      }
+    },
+    {
+      "id": "T5",
+      "question": "Which restaurant near campus has the best khao soi?",
+      "expected": "out_of_scope",
+      "note": "Unrelated to the course",
+      "status": 200,
+      "latencyMs": 618,
+      "pass": true,
+      "output": {
+        "category": "out_of_scope",
+        "action": "decline_with_reason",
+        "source": "laya",
+        "confidence": 0.783,
+        "needsReview": false,
+        "reason": "laya selected 'out_of_scope' with confidence 0.78"
+      }
+    },
+    {
+      "id": "T6",
+      "question": "Why should the model never write straight into the database without validation?",
+      "expected": "course_content",
+      "note": "No obvious keyword like 'what is'",
+      "status": 200,
+      "latencyMs": 646,
+      "pass": true,
+      "output": {
+        "category": "course_content",
+        "action": "answer_from_course_materials",
+        "source": "fallback",
+        "confidence": null,
+        "needsReview": true,
+        "reason": "laya confidence 0.35 below 0.6 (model suggested 'course_content'); no keyword rule matched, defaulted to course_content"
+      }
+    },
+    {
+      "id": "T7",
+      "question": "My midterm score looks lower than I expected. Who can check it?",
+      "expected": "administrative",
+      "note": "Grade question",
+      "status": 200,
+      "latencyMs": 665,
+      "pass": true,
+      "output": {
+        "category": "administrative",
+        "action": "escalate_to_instructor",
+        "source": "fallback",
+        "confidence": null,
+        "needsReview": true,
+        "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+      }
+    },
+    {
+      "id": "T8",
+      "question": "D1 กับ Supabase ต่างกันยังไงครับ",
+      "expected": "course_content",
+      "note": "Thai question, keyword rules cannot read it",
+      "status": 200,
+      "latencyMs": 502,
+      "pass": false,
+      "output": {
+        "category": "out_of_scope",
+        "action": "decline_with_reason",
+        "source": "laya",
+        "confidence": 0.922,
+        "needsReview": false,
+        "reason": "laya selected 'out_of_scope' with confidence 0.92"
+      }
+    }
+  ]
+}

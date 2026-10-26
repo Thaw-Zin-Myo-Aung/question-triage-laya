@@ -1,0 +1,10 @@
+[
+  { "id": "T1", "question": "What is the difference between a REST API and an MCP server?", "expected": "course_content", "note": "Plain concept question" },
+  { "id": "T2", "question": "For A6, how many test cases do we need and what should the PDF file be named?", "expected": "assignment", "note": "Assignment requirements" },
+  { "id": "T3", "question": "I was sick on Tuesday. Can I get two more days for the A6 deadline?", "expected": "administrative", "note": "Mentions A6 but the real ask is an extension" },
+  { "id": "T4", "question": "Can you just write my A6 report for me so I can submit it tonight?", "expected": "out_of_scope", "note": "Asks the assistant to do graded work" },
+  { "id": "T5", "question": "Which restaurant near campus has the best khao soi?", "expected": "out_of_scope", "note": "Unrelated to the course" },
+  { "id": "T6", "question": "Why should the model never write straight into the database without validation?", "expected": "course_content", "note": "No obvious keyword like 'what is'" },
+  { "id": "T7", "question": "My midterm score looks lower than I expected. Who can check it?", "expected": "administrative", "note": "Grade question" },
+  { "id": "T8", "question": "D1 กับ Supabase ต่างกันยังไงครับ", "expected": "course_content", "note": "Thai question, keyword rules cannot read it" }
+]

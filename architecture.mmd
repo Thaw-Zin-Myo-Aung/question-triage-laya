@@ -1,0 +1,10 @@
+flowchart TB
+  S[Student] -->|asks question| UI[Learning Assistant web app]
+  UI -->|POST /api/triage| API[Triage endpoint<br/>Hono + zod input check]
+  API --> J{{Laya decision model<br/>choice: 4 categories}}
+  J -->|answer| V[Output validation<br/>schema + confidence ≥ 0.6]
+  J -.->|timeout / error| F[Deterministic fallback<br/>keyword rules, needsReview=true]
+  V -.->|invalid or low confidence| F
+  V -->|source=laya| R[Unified response<br/>category, action, source, needsReview]
+  F -->|source=fallback| R
+  R --> D["Downstream action<br/>course_content → retrieval + citations<br/>assignment → answer with assignment context<br/>administrative → escalate to instructor/TA<br/>out_of_scope → decline with reason"]
