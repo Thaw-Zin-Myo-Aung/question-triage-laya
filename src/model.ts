@@ -1,4 +1,5 @@
 import { choice, TypeSafeClient } from "@typesafe-ai/sdk";
+import { groundingEnabled, retrieve } from "./grounding.js";
 
 // Which decision model answers. Laya is free and runs on your own machine
 // (`laya-serve`, same /v1/systemone protocol as Jev). Jev is TypeSafe's paid hosted API.
@@ -22,12 +23,18 @@ export const CRITERIA = {
 
 const INSTRUCTIONS = "Which category best describes the student's question?";
 
-function buildState(question: string, courseId?: string) {
-  return {
+// The question goes before the context: Laya reads about 300 tokens of state
+// and cuts the rest, so the context is the part that may be cut, not the question.
+export function buildState(question: string, courseId?: string) {
+  const state = {
     platform: "Learning Assistant: answers students' course questions only from instructor-approved materials.",
     course: courseId ?? "1305308 Platform Development",
     studentQuestion: question,
   };
+  if (!groundingEnabled()) return state;
+  const records = retrieve(question);
+  if (records.length === 0) return state;
+  return { ...state, courseContext: records.map((r) => `${r.title}: ${r.text}`) };
 }
 
 // Laya: plain HTTP to the local laya-serve. AbortController bounds the wait.

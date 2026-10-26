@@ -1,0 +1,171 @@
+[
+  {
+    "id": "KB01",
+    "category": "course_content",
+    "title": "Weeks 2-3: Platform architecture and APIs",
+    "text": "Course topic (lectures Wk02-Wk03): platform architecture, REST API design, HTTP methods and status codes, API contracts and versioning, MCP servers that expose tools to AI agents.",
+    "keywords": [
+      "architecture",
+      "rest",
+      "api",
+      "endpoint",
+      "http",
+      "status code",
+      "contract",
+      "versioning",
+      "mcp",
+      "openapi",
+      "สถาปัตยกรรม"
+    ]
+  },
+  {
+    "id": "KB02",
+    "category": "course_content",
+    "title": "Week 4: Platform data",
+    "text": "Course topic (lecture Wk04): platform data and databases, SQL, Cloudflare D1, Supabase, PostgreSQL, schema design, migrations, validating data before it is written.",
+    "keywords": [
+      "d1",
+      "supabase",
+      "postgres",
+      "sql",
+      "database",
+      "schema",
+      "migration",
+      "table",
+      "data",
+      "ฐานข้อมูล",
+      "ข้อมูล"
+    ]
+  },
+  {
+    "id": "KB03",
+    "category": "course_content",
+    "title": "Weeks 5-6: Security, extensibility and integration",
+    "text": "Course topic (lectures Wk05-Wk06): authentication, OAuth, JWT, API keys, secrets, webhooks, events, plugins and integrating external services.",
+    "keywords": [
+      "oauth",
+      "jwt",
+      "token",
+      "auth",
+      "security",
+      "api key",
+      "secret",
+      "webhook",
+      "event",
+      "plugin",
+      "integration",
+      "ความปลอดภัย"
+    ]
+  },
+  {
+    "id": "KB04",
+    "category": "course_content",
+    "title": "Weeks 8-9: AI-native capability design and evaluation",
+    "text": "Course topic (lectures Wk08-Wk09): AI decision capabilities, decision models such as Jev and Laya, output validation, confidence thresholds, fallback design, grounding context, evaluation sets, accuracy and latency.",
+    "keywords": [
+      "model",
+      "jev",
+      "laya",
+      "llm",
+      "ai",
+      "fallback",
+      "confidence",
+      "threshold",
+      "validation",
+      "validate",
+      "grounding",
+      "evaluation",
+      "latency",
+      "prompt"
+    ]
+  },
+  {
+    "id": "KB05",
+    "category": "assignment",
+    "title": "Assignment briefs (A6, A7)",
+    "text": "Assignment requirements: A6 builds an AI decision capability with test cases, fallback and a report A6_StudentID.pdf. A7 evaluates it with 10 eval cases, baseline, one improvement, report A7_StudentID.pdf, eval-cases.json and a disclosure of AI assistance. Questions about tasks, files, format or rubric are assignment questions.",
+    "keywords": [
+      "assignment",
+      "a6",
+      "a7",
+      "lab",
+      "rubric",
+      "template",
+      "submit",
+      "submission",
+      "deliverable",
+      "pdf",
+      "report format",
+      "test cases",
+      "eval cases",
+      "file name",
+      "งาน",
+      "การบ้าน"
+    ]
+  },
+  {
+    "id": "KB06",
+    "category": "administrative",
+    "title": "Grades, extensions and attendance policy",
+    "text": "Policy: grades, score checks, deadline extensions, late submission, sickness, attendance and enrolment are decided only by the instructor (Aj. Vittayasak). The assistant must escalate these to the instructor, even when an assignment is mentioned.",
+    "keywords": [
+      "grade",
+      "score",
+      "midterm",
+      "final exam",
+      "marks",
+      "extension",
+      "more days",
+      "extra days",
+      "late",
+      "sick",
+      "absent",
+      "attendance",
+      "enrol",
+      "register",
+      "appeal",
+      "คะแนน",
+      "เกรด",
+      "ป่วย",
+      "ขาด",
+      "ขยาย",
+      "ส่งช้า"
+    ]
+  },
+  {
+    "id": "KB07",
+    "category": "out_of_scope",
+    "title": "Academic integrity",
+    "text": "Policy: the assistant explains course material but must not write, solve or complete a student's graded work (reports, code, labs). Requests to do the work for the student are out of scope and must be declined.",
+    "keywords": [
+      "write my",
+      "do my",
+      "for me",
+      "solve my",
+      "finish my",
+      "complete my",
+      "submit it tonight",
+      "ทำให้",
+      "เขียนให้"
+    ]
+  },
+  {
+    "id": "KB08",
+    "category": "out_of_scope",
+    "title": "Assistant scope",
+    "text": "Policy: the Learning Assistant only handles questions about course 1305308 Platform Development: its lectures, assignments and course administration. Anything else (food, travel, entertainment, other courses, personal advice) is out of scope.",
+    "keywords": [
+      "restaurant",
+      "food",
+      "eat",
+      "movie",
+      "game",
+      "football",
+      "weather",
+      "travel",
+      "song",
+      "ร้าน",
+      "อาหาร"
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-# A6: Learning Assistant Question Triage
+# A6/A7: Learning Assistant Question Triage
 
 One small AI decision capability for our group platform (Learning Assistant, Team 08).
 Before a student's question goes into the answer pipeline, a decision model decides **what kind of question it is**,
@@ -35,7 +35,7 @@ Requires Node.js 22+. If `npm` is blocked by the execution policy, use `npm.cmd`
 ```powershell
 npm install
 copy .env.example .env
-npm test                     # 9 offline tests: validation + every fallback path (Laya not needed)
+npm test                     # 14 offline tests: validation + every fallback path (Laya not needed)
 npm run dev                  # API on http://localhost:3000/api/triage
 ```
 
@@ -60,6 +60,24 @@ Remove-Item Env:SIMULATE_FAILURE
 
 Real outage demo: stop `laya-serve` (Ctrl+C) and send the curl request again. The API still answers 200 with `"source": "fallback"`.
 
+## A7 (Week 9): evaluation and one improvement
+
+The A6 submission is tagged `a6-submission`. Week 9 work is on the `week09` branch.
+
+The single improvement is **grounding context**: `src/grounding.ts` picks up to 2 records from
+`knowledge/course-kb.json` (8 records) by keyword match and sends them to the model as `state.courseContext`.
+Nothing else changed (same criteria, same threshold 0.6, same fallback). `GROUNDING=off` sends exactly the A6 request.
+
+```powershell
+# laya-serve must be running (see step 1)
+$env:GROUNDING="off"; npm run eval    # baseline  -> evidence/eval-baseline-*.md/json
+$env:GROUNDING="on";  npm run eval    # improved  -> evidence/eval-grounded-*.md/json
+```
+
+`eval-cases.json` holds the 10 cases (3 normal, 3 edge, 2 fallback, 2 difficult) with expected results.
+Each run sends 3 warm-up requests first (not measured), then runs all 10 cases 5 times (`REPEATS`),
+and reports accuracy, p50/p95 latency over the 50 requests, and cost.
+
 ## Files
 
 | Path | What it is |
@@ -69,6 +87,8 @@ Real outage demo: stop `laya-serve` (Ctrl+C) and send the curl request again. Th
 | `src/triage.ts` | model -> validate -> threshold -> fallback |
 | `src/fallback.ts` | Deterministic keyword rules |
 | `src/app.ts` / `src/server.ts` | Hono REST endpoint |
-| `scripts/cases.json` | 8 test inputs with expected decisions |
+| `scripts/cases.json` | 8 A6 test inputs with expected decisions |
+| `eval-cases.json` / `scripts/eval.ts` | A7 evaluation set and runner |
+| `knowledge/course-kb.json` / `src/grounding.ts` | A7 knowledge records and keyword retrieval |
 | `test/triage.test.ts` | Offline tests (uses a fake laya-serve) |
 | `evidence/` | Saved outputs of every run |

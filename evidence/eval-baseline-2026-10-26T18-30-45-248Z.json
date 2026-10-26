@@ -1,0 +1,1000 @@
+{
+  "summary": {
+    "label": "baseline",
+    "provider": "laya",
+    "grounding": false,
+    "threshold": 0.6,
+    "ranAt": "2026-10-26T18:30:45.247Z",
+    "repeats": 5,
+    "measurements": 50,
+    "accuracy": "6/10",
+    "accuracyPct": 60,
+    "accuracyPerRepeat": [
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "modelChoiceCorrect": "3/9",
+    "answeredByModel": 1,
+    "sentToReview": 9,
+    "latencyMs": {
+      "p50": 2413,
+      "p95": 2666,
+      "max": 3816
+    },
+    "modelPathLatencyMs": {
+      "p50": 2450,
+      "p95": 2666,
+      "max": 3816
+    },
+    "costPerTaskUsd": 0,
+    "costNote": "Laya runs locally (laya-serve), so there is no per-request API charge. Electricity/CPU time is not measured."
+  },
+  "perCase": [
+    {
+      "id": "T01",
+      "type": "normal",
+      "input": "What is the difference between a REST API and an MCP server?",
+      "expectedDecision": "course_content",
+      "expectedReview": null,
+      "reason": "laya confidence 0.41 below 0.6 (model suggested 'course_content'); keyword rule matched 'course_content'",
+      "context": [],
+      "actual": "course_content",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "course_content",
+      "modelCorrect": true,
+      "pass": true,
+      "stable": true,
+      "medianLatencyMs": 2352
+    },
+    {
+      "id": "T02",
+      "type": "normal",
+      "input": "For A7, how many evaluation cases do we need and which files do we submit?",
+      "expectedDecision": "assignment",
+      "expectedReview": null,
+      "reason": "laya confidence 0.42 below 0.6 (model suggested 'assignment'); keyword rule matched 'assignment'",
+      "context": [],
+      "actual": "assignment",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "assignment",
+      "modelCorrect": true,
+      "pass": true,
+      "stable": true,
+      "medianLatencyMs": 2459
+    },
+    {
+      "id": "T03",
+      "type": "normal",
+      "input": "My midterm score looks lower than I expected. Who can check it?",
+      "expectedDecision": "administrative",
+      "expectedReview": null,
+      "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'",
+      "context": [],
+      "actual": "administrative",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": false,
+      "pass": true,
+      "stable": true,
+      "medianLatencyMs": 2410
+    },
+    {
+      "id": "T04",
+      "type": "edge",
+      "input": "I was sick on Tuesday. Can I get two more days for the A7 deadline?",
+      "expectedDecision": "administrative",
+      "expectedReview": null,
+      "reason": "laya confidence 0.33 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'",
+      "context": [],
+      "actual": "assignment",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": false,
+      "pass": false,
+      "stable": true,
+      "medianLatencyMs": 2450
+    },
+    {
+      "id": "T05",
+      "type": "edge",
+      "input": "Can you just write my A7 report for me so I can submit it tonight?",
+      "expectedDecision": "out_of_scope",
+      "expectedReview": null,
+      "reason": "laya confidence 0.37 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'",
+      "context": [],
+      "actual": "assignment",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": true,
+      "pass": false,
+      "stable": true,
+      "medianLatencyMs": 2488
+    },
+    {
+      "id": "T06",
+      "type": "edge",
+      "input": "D1 กับ Supabase ต่างกันยังไงครับ",
+      "expectedDecision": "course_content",
+      "expectedReview": null,
+      "reason": "laya selected 'out_of_scope' with confidence 0.92",
+      "context": [],
+      "actual": "out_of_scope",
+      "source": "laya",
+      "confidence": 0.922,
+      "needsReview": false,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": false,
+      "pass": false,
+      "stable": true,
+      "medianLatencyMs": 981
+    },
+    {
+      "id": "T07",
+      "type": "fallback",
+      "simulate": "error",
+      "input": "Can I get an extension for the A7 deadline?",
+      "expectedDecision": "administrative",
+      "expectedReview": true,
+      "reason": "laya unavailable (Error: Simulated model outage (SIMULATE_FAILURE)); keyword rule matched 'administrative'",
+      "context": [],
+      "actual": "administrative",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": null,
+      "modelCorrect": false,
+      "pass": true,
+      "stable": true,
+      "medianLatencyMs": 1
+    },
+    {
+      "id": "T08",
+      "type": "fallback",
+      "input": "help it still doesnt work",
+      "expectedDecision": "course_content",
+      "expectedReview": true,
+      "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); no keyword rule matched, defaulted to course_content",
+      "context": [],
+      "actual": "course_content",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": false,
+      "pass": true,
+      "stable": true,
+      "medianLatencyMs": 2302
+    },
+    {
+      "id": "T09",
+      "type": "difficult",
+      "input": "Is it okay to use ChatGPT to help with the A7 report, or is that cheating?",
+      "expectedDecision": "assignment",
+      "expectedReview": null,
+      "reason": "laya confidence 0.38 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'",
+      "context": [],
+      "actual": "assignment",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": false,
+      "pass": true,
+      "stable": true,
+      "medianLatencyMs": 2571
+    },
+    {
+      "id": "T10",
+      "type": "difficult",
+      "input": "Why did my A6 fallback get a low confidence score from Laya?",
+      "expectedDecision": "course_content",
+      "expectedReview": null,
+      "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'",
+      "context": [],
+      "actual": "administrative",
+      "source": "fallback",
+      "confidence": null,
+      "needsReview": true,
+      "modelChoice": "out_of_scope",
+      "modelCorrect": false,
+      "pass": false,
+      "stable": true,
+      "medianLatencyMs": 2512
+    }
+  ],
+  "runs": [
+    {
+      "repeat": 1,
+      "passed": 6,
+      "rows": [
+        {
+          "id": "T01",
+          "status": 200,
+          "latencyMs": 2484,
+          "pass": true,
+          "modelChoice": "course_content",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'course_content'); keyword rule matched 'course_content'"
+          }
+        },
+        {
+          "id": "T02",
+          "status": 200,
+          "latencyMs": 2466,
+          "pass": true,
+          "modelChoice": "assignment",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.42 below 0.6 (model suggested 'assignment'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T03",
+          "status": 200,
+          "latencyMs": 2410,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T04",
+          "status": 200,
+          "latencyMs": 2379,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.33 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T05",
+          "status": 200,
+          "latencyMs": 2400,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.37 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T06",
+          "status": 200,
+          "latencyMs": 3816,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "out_of_scope",
+            "action": "decline_with_reason",
+            "source": "laya",
+            "confidence": 0.922,
+            "needsReview": false,
+            "reason": "laya selected 'out_of_scope' with confidence 0.92"
+          }
+        },
+        {
+          "id": "T07",
+          "status": 200,
+          "latencyMs": 1,
+          "pass": true,
+          "modelChoice": null,
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya unavailable (Error: Simulated model outage (SIMULATE_FAILURE)); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T08",
+          "status": 200,
+          "latencyMs": 2199,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); no keyword rule matched, defaulted to course_content"
+          }
+        },
+        {
+          "id": "T09",
+          "status": 200,
+          "latencyMs": 2535,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.38 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T10",
+          "status": 200,
+          "latencyMs": 2512,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "passed": 6,
+      "rows": [
+        {
+          "id": "T01",
+          "status": 200,
+          "latencyMs": 2306,
+          "pass": true,
+          "modelChoice": "course_content",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'course_content'); keyword rule matched 'course_content'"
+          }
+        },
+        {
+          "id": "T02",
+          "status": 200,
+          "latencyMs": 2395,
+          "pass": true,
+          "modelChoice": "assignment",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.42 below 0.6 (model suggested 'assignment'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T03",
+          "status": 200,
+          "latencyMs": 2353,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T04",
+          "status": 200,
+          "latencyMs": 2398,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.33 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T05",
+          "status": 200,
+          "latencyMs": 2433,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.37 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T06",
+          "status": 200,
+          "latencyMs": 954,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "out_of_scope",
+            "action": "decline_with_reason",
+            "source": "laya",
+            "confidence": 0.922,
+            "needsReview": false,
+            "reason": "laya selected 'out_of_scope' with confidence 0.92"
+          }
+        },
+        {
+          "id": "T07",
+          "status": 200,
+          "latencyMs": 1,
+          "pass": true,
+          "modelChoice": null,
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya unavailable (Error: Simulated model outage (SIMULATE_FAILURE)); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T08",
+          "status": 200,
+          "latencyMs": 2377,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); no keyword rule matched, defaulted to course_content"
+          }
+        },
+        {
+          "id": "T09",
+          "status": 200,
+          "latencyMs": 2558,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.38 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T10",
+          "status": 200,
+          "latencyMs": 2419,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 3,
+      "passed": 6,
+      "rows": [
+        {
+          "id": "T01",
+          "status": 200,
+          "latencyMs": 2352,
+          "pass": true,
+          "modelChoice": "course_content",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'course_content'); keyword rule matched 'course_content'"
+          }
+        },
+        {
+          "id": "T02",
+          "status": 200,
+          "latencyMs": 2459,
+          "pass": true,
+          "modelChoice": "assignment",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.42 below 0.6 (model suggested 'assignment'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T03",
+          "status": 200,
+          "latencyMs": 2450,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T04",
+          "status": 200,
+          "latencyMs": 2451,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.33 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T05",
+          "status": 200,
+          "latencyMs": 2488,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.37 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T06",
+          "status": 200,
+          "latencyMs": 990,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "out_of_scope",
+            "action": "decline_with_reason",
+            "source": "laya",
+            "confidence": 0.922,
+            "needsReview": false,
+            "reason": "laya selected 'out_of_scope' with confidence 0.92"
+          }
+        },
+        {
+          "id": "T07",
+          "status": 200,
+          "latencyMs": 1,
+          "pass": true,
+          "modelChoice": null,
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya unavailable (Error: Simulated model outage (SIMULATE_FAILURE)); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T08",
+          "status": 200,
+          "latencyMs": 2238,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); no keyword rule matched, defaulted to course_content"
+          }
+        },
+        {
+          "id": "T09",
+          "status": 200,
+          "latencyMs": 2603,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.38 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T10",
+          "status": 200,
+          "latencyMs": 2746,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 4,
+      "passed": 6,
+      "rows": [
+        {
+          "id": "T01",
+          "status": 200,
+          "latencyMs": 2347,
+          "pass": true,
+          "modelChoice": "course_content",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'course_content'); keyword rule matched 'course_content'"
+          }
+        },
+        {
+          "id": "T02",
+          "status": 200,
+          "latencyMs": 2502,
+          "pass": true,
+          "modelChoice": "assignment",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.42 below 0.6 (model suggested 'assignment'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T03",
+          "status": 200,
+          "latencyMs": 2545,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T04",
+          "status": 200,
+          "latencyMs": 2450,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.33 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T05",
+          "status": 200,
+          "latencyMs": 2608,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.37 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T06",
+          "status": 200,
+          "latencyMs": 975,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "out_of_scope",
+            "action": "decline_with_reason",
+            "source": "laya",
+            "confidence": 0.922,
+            "needsReview": false,
+            "reason": "laya selected 'out_of_scope' with confidence 0.92"
+          }
+        },
+        {
+          "id": "T07",
+          "status": 200,
+          "latencyMs": 1,
+          "pass": true,
+          "modelChoice": null,
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya unavailable (Error: Simulated model outage (SIMULATE_FAILURE)); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T08",
+          "status": 200,
+          "latencyMs": 2413,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); no keyword rule matched, defaulted to course_content"
+          }
+        },
+        {
+          "id": "T09",
+          "status": 200,
+          "latencyMs": 2571,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.38 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T10",
+          "status": 200,
+          "latencyMs": 2584,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 5,
+      "passed": 6,
+      "rows": [
+        {
+          "id": "T01",
+          "status": 200,
+          "latencyMs": 2363,
+          "pass": true,
+          "modelChoice": "course_content",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'course_content'); keyword rule matched 'course_content'"
+          }
+        },
+        {
+          "id": "T02",
+          "status": 200,
+          "latencyMs": 2459,
+          "pass": true,
+          "modelChoice": "assignment",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.42 below 0.6 (model suggested 'assignment'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T03",
+          "status": 200,
+          "latencyMs": 2371,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.45 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T04",
+          "status": 200,
+          "latencyMs": 2468,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.33 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T05",
+          "status": 200,
+          "latencyMs": 2523,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.37 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T06",
+          "status": 200,
+          "latencyMs": 981,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "out_of_scope",
+            "action": "decline_with_reason",
+            "source": "laya",
+            "confidence": 0.922,
+            "needsReview": false,
+            "reason": "laya selected 'out_of_scope' with confidence 0.92"
+          }
+        },
+        {
+          "id": "T07",
+          "status": 200,
+          "latencyMs": 0,
+          "pass": true,
+          "modelChoice": null,
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya unavailable (Error: Simulated model outage (SIMULATE_FAILURE)); keyword rule matched 'administrative'"
+          }
+        },
+        {
+          "id": "T08",
+          "status": 200,
+          "latencyMs": 2302,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "course_content",
+            "action": "answer_from_course_materials",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); no keyword rule matched, defaulted to course_content"
+          }
+        },
+        {
+          "id": "T09",
+          "status": 200,
+          "latencyMs": 2666,
+          "pass": true,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "assignment",
+            "action": "answer_with_assignment_context",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.38 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'assignment'"
+          }
+        },
+        {
+          "id": "T10",
+          "status": 200,
+          "latencyMs": 2512,
+          "pass": false,
+          "modelChoice": "out_of_scope",
+          "output": {
+            "category": "administrative",
+            "action": "escalate_to_instructor",
+            "source": "fallback",
+            "confidence": null,
+            "needsReview": true,
+            "reason": "laya confidence 0.41 below 0.6 (model suggested 'out_of_scope'); keyword rule matched 'administrative'"
+          }
+        }
+      ]
+    }
+  ]
+}

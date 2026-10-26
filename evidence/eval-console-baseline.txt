@@ -1,0 +1,36 @@
+﻿
+> a6-question-triage@1.0.0 eval
+> tsx scripts/eval.ts
+
+Warm-up: 3 requests (not measured)
+npm.cmd : [triage] laya call failed: TimeoutError The operation was aborted due to timeout
+At line:1 char:324
++ ... ' } catch {} } }; $env:GROUNDING="off"; npm.cmd run eval *>&1 | Tee-O ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([triage] laya c... due to timeout:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+T01 PASS expected=course_content actual=course_content source=fallback conf=null review=true 2484ms
+T02 PASS expected=assignment actual=assignment source=fallback conf=null review=true 2466ms
+T03 PASS expected=administrative actual=administrative source=fallback conf=null review=true 2410ms
+T04 FAIL expected=administrative actual=assignment source=fallback conf=null review=true 2379ms
+T05 FAIL expected=out_of_scope actual=assignment source=fallback conf=null review=true 2400ms
+T06 FAIL expected=course_content actual=out_of_scope source=laya conf=0.922 review=false 3816ms
+[triage] laya call failed: Error Simulated model outage (SIMULATE_FAILURE)
+T07 PASS expected=administrative actual=administrative source=fallback conf=null review=true 1ms
+T08 PASS expected=course_content actual=course_content source=fallback conf=null review=true 2199ms
+T09 PASS expected=assignment actual=assignment source=fallback conf=null review=true 2535ms
+T10 FAIL expected=course_content actual=administrative source=fallback conf=null review=true 2512ms
+repeat 1: 6/10
+[triage] laya call failed: Error Simulated model outage (SIMULATE_FAILURE)
+repeat 2: 6/10
+[triage] laya call failed: Error Simulated model outage (SIMULATE_FAILURE)
+repeat 3: 6/10
+[triage] laya call failed: Error Simulated model outage (SIMULATE_FAILURE)
+repeat 4: 6/10
+[triage] laya call failed: Error Simulated model outage (SIMULATE_FAILURE)
+repeat 5: 6/10
+
+baseline: accuracy 6/10 (60%), per repeat 6,6,6,6,6
+model choice correct 3/9, answered by model 1/10, sent to review 9/10
+latency over 50 requests: p50 2413 ms, p95 2666 ms, max 3816 ms

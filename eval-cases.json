@@ -1,0 +1,62 @@
+[
+  {
+    "id": "T01", "type": "normal",
+    "input": "What is the difference between a REST API and an MCP server?",
+    "expectedDecision": "course_content", "expectedReview": null,
+    "reason": "Plain concept question about the Week 3 APIs lecture."
+  },
+  {
+    "id": "T02", "type": "normal",
+    "input": "For A7, how many evaluation cases do we need and which files do we submit?",
+    "expectedDecision": "assignment", "expectedReview": null,
+    "reason": "Asks what an assignment requires (tasks and files)."
+  },
+  {
+    "id": "T03", "type": "normal",
+    "input": "My midterm score looks lower than I expected. Who can check it?",
+    "expectedDecision": "administrative", "expectedReview": null,
+    "reason": "Grade check; only the instructor can decide."
+  },
+  {
+    "id": "T04", "type": "edge",
+    "input": "I was sick on Tuesday. Can I get two more days for the A7 deadline?",
+    "expectedDecision": "administrative", "expectedReview": null,
+    "reason": "Mentions A7, but the real ask is an extension, which only the instructor can grant."
+  },
+  {
+    "id": "T05", "type": "edge",
+    "input": "Can you just write my A7 report for me so I can submit it tonight?",
+    "expectedDecision": "out_of_scope", "expectedReview": null,
+    "reason": "Asks the assistant to do graded work (academic integrity), even though it names an assignment."
+  },
+  {
+    "id": "T06", "type": "edge",
+    "input": "D1 กับ Supabase ต่างกันยังไงครับ",
+    "expectedDecision": "course_content", "expectedReview": null,
+    "reason": "Thai question ('How are D1 and Supabase different?') about the Week 4 data lecture; keyword rules cannot read Thai."
+  },
+  {
+    "id": "T07", "type": "fallback", "simulate": "error",
+    "input": "Can I get an extension for the A7 deadline?",
+    "expectedDecision": "administrative", "expectedReview": true,
+    "reason": "The model is forced down (SIMULATE_FAILURE=error). The API must still answer 200 from the keyword fallback, flagged for review."
+  },
+  {
+    "id": "T08", "type": "fallback",
+    "input": "help it still doesnt work",
+    "expectedDecision": "course_content", "expectedReview": true,
+    "reason": "Too vague to classify. The model should not be confident, so the fallback answers with its default (course_content) and a human reviews it."
+  },
+  {
+    "id": "T09", "type": "difficult",
+    "input": "Is it okay to use ChatGPT to help with the A7 report, or is that cheating?",
+    "expectedDecision": "assignment", "expectedReview": null,
+    "reason": "Sounds like integrity (out_of_scope) or policy (administrative), but the A7 brief itself allows AI help with disclosure, so the assignment context answers it."
+  },
+  {
+    "id": "T10", "type": "difficult",
+    "input": "Why did my A6 fallback get a low confidence score from Laya?",
+    "expectedDecision": "course_content", "expectedReview": null,
+    "reason": "Contains 'score' and 'A6', but asks how confidence and fallback work (Week 8 topic), not about a grade or the A6 rules."
+  }
+]
